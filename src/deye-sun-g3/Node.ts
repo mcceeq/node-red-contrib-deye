@@ -18,7 +18,7 @@ const nodeInitializer: NodeInitializer = (RED): void => {
         this.on('close', () => actionFactory.teardown());
     }
 
-    RED.nodes.registerType('binsoul-deye-sun-g3', NodeConstructor);
+    RED.nodes.registerType('contrib-deye', NodeConstructor);
 };
 
 export = nodeInitializer;

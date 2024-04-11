@@ -66,11 +66,25 @@ export class Storage {
             power: this.round(this.data.pv4Voltage * this.data.pv4Current, '4'),
         };
 
+        const grid = {
+            power: this.data.gridPower1,
+            voltage: this.data.gridVoltage1,
+            current: this.data.gridCurrent1,
+            frequency: this.data.gridFrequency,
+        };
+
         const output = {
-            power: this.data.acPower,
-            voltage: this.data.acVoltage,
-            current: this.data.acCurrent,
-            frequency: this.data.acFrequency,
+            power: this.data.outputPower1,
+            voltage: this.data.outputVoltage1,
+            current: this.data.outputCurrent1,
+            frequency: this.data.outputFrequency,
+        };
+
+        const load = {
+            power: this.data.loadPower1,
+            voltage: this.data.loadVoltage1,
+            current: this.data.loadCurrent1,
+            frequency: this.data.loadFrequency,
         };
 
         const counters = {
@@ -91,8 +105,9 @@ export class Storage {
             pv2: pv2,
             pv3: pv3,
             pv4: pv4,
+            grid: grid,
             output: output,
-            counters: counters,
+            load: load,
             temperature: this.data.temperature,
             isAvailable: this.available,
         };
@@ -129,10 +144,18 @@ export class Storage {
             this.data.pv3Current = 0;
             this.data.pv4Voltage = 0;
             this.data.pv4Current = 0;
-            this.data.acFrequency = 0;
-            this.data.acPower = 0;
-            this.data.acVoltage = 0;
-            this.data.acCurrent = 0;
+            this.data.gridFrequency = 0;
+            this.data.gridPower1 = 0;
+            this.data.gridVoltage1 = 0;
+            this.data.gridCurrent1 = 0;
+            this.data.outputFrequency = 0;
+            this.data.outputPower1 = 0;
+            this.data.outputVoltage1 = 0;
+            this.data.outputCurrent1 = 0;
+            this.data.loadFrequency = 0;
+            this.data.loadPower1 = 0;
+            this.data.loadVoltage1 = 0;
+            this.data.loadCurrent1 = 0;
             this.data.uptime = 0;
             this.data.operatingPower = 0;
             this.data.temperature = null;

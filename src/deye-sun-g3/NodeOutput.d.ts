@@ -4,7 +4,21 @@ interface PV {
     power: number;
 }
 
+interface Grid {
+    power: number;
+    voltage: number;
+    current: number;
+    frequency: number;
+}
+
 interface Output {
+    power: number;
+    voltage: number;
+    current: number;
+    frequency: number;
+}
+
+interface Load {
     power: number;
     voltage: number;
     current: number;
@@ -29,7 +43,9 @@ export interface NodeOutput {
     pv2: PV;
     pv3: PV;
     pv4: PV;
+    grid: Grid;
     output: Output;
+    load: Load;
     counters: Counters;
     temperature: number | null;
     isAvailable: boolean;

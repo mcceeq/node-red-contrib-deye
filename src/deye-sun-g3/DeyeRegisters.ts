@@ -13,10 +13,18 @@ export interface RegisterValues {
     statusCode: number;
     totalEnergy: number;
     totalEnergyToday: number;
-    acPower: number;
-    acVoltage: number;
-    acCurrent: number;
-    acFrequency: number;
+    gridPower1: number;
+    gridVoltage1: number;
+    gridCurrent1: number;
+    gridFrequency: number;
+    outputPower1: number;
+    outputVoltage1: number;
+    outputCurrent1: number;
+    outputFrequency: number;
+    loadPower1: number;
+    loadVoltage1: number;
+    loadCurrent1: number;
+    loadFrequency: number;
     pv1Voltage: number;
     pv1Current: number;
     pv1TotalEnergy: number;
@@ -42,13 +50,21 @@ export class DeyeRegisters {
     private dataDefinition: Array<Definition> = [
         { name: 'id', type: 'string', registers: [0, 1, 2, 3, 4], unit: '' },
         { name: 'statusCode', scale: 1, type: 'unsigned', registers: [56], unit: '' },
-        { name: 'totalEnergy', scale: 0.1, type: 'unsigned', registers: [60, 61], unit: 'kWh' },
-        { name: 'totalEnergyToday', scale: 0.1, type: 'unsigned', registers: [57], unit: 'kWh' },
-        { name: 'acPower', scale: 0.1, type: 'unsigned', registers: [83, 84], unit: 'W' },
-        { name: 'acVoltage', scale: 0.1, type: 'unsigned', registers: [70], unit: 'V' },
-        { name: 'acCurrent', scale: 0.1, type: 'signed', registers: [73], unit: 'A' },
-        { name: 'acFrequency', scale: 0.01, type: 'unsigned', registers: [76], unit: 'Hz' },
-        { name: 'pv1Voltage', scale: 0.1, type: 'unsigned', registers: [106], unit: 'V' },
+        //{ name: 'totalEnergy', scale: 0.1, type: 'unsigned', registers: [60, 61], unit: 'kWh' },
+        //{ name: 'totalEnergyToday', scale: 0.1, type: 'unsigned', registers: [57], unit: 'kWh' },
+        { name: 'gridPower1', scale: 0.1, type: 'unsigned', registers: [167], unit: 'W' },
+        { name: 'outputPower1', scale: 0.1, type: 'unsigned', registers: [173], unit: 'W' },
+        { name: 'loadPower1', scale: 0.1, type: 'unsigned', registers: [176], unit: 'W' },
+        { name: 'gridVoltage1', scale: 0.1, type: 'unsigned', registers: [150], unit: 'V' },
+        { name: 'outputVoltage1', scale: 0.1, type: 'unsigned', registers: [154], unit: 'V' },
+        { name: 'loadVoltage1', scale: 0.1, type: 'unsigned', registers: [157], unit: 'V' },
+        { name: 'gridCurrent1', scale: 0.1, type: 'signed', registers: [160], unit: 'A' },
+        { name: 'outputCurrent1', scale: 0.1, type: 'signed', registers: [164], unit: 'A' },
+        { name: 'loadCurrent1', scale: 0.1, type: 'signed', registers: [179], unit: 'A' },
+        { name: 'gridFrequency', scale: 0.01, type: 'unsigned', registers: [79], unit: 'Hz' },
+        { name: 'outputFrequency', scale: 0.01, type: 'unsigned', registers: [193], unit: 'Hz' },
+        { name: 'loadFrequency', scale: 0.01, type: 'unsigned', registers: [192], unit: 'Hz' },
+        /*{ name: 'pv1Voltage', scale: 0.1, type: 'unsigned', registers: [106], unit: 'V' },
         { name: 'pv1Current', scale: 0.1, type: 'unsigned', registers: [107], unit: 'A' },
         { name: 'pv1TotalEnergy', scale: 0.1, type: 'unsigned', registers: [66, 67], unit: 'kWh' },
         { name: 'pv1TotalEnergyToday', scale: 0.1, type: 'unsigned', registers: [62], unit: 'kWh' },
@@ -63,7 +79,7 @@ export class DeyeRegisters {
         { name: 'pv4Voltage', scale: 0.1, type: 'unsigned', registers: [112], unit: 'V' },
         { name: 'pv4Current', scale: 0.1, type: 'unsigned', registers: [113], unit: 'A' },
         { name: 'pv4TotalEnergy', scale: 0.1, type: 'unsigned', registers: [74, 75], unit: 'kWh' },
-        { name: 'pv4TotalEnergyToday', scale: 0.1, type: 'unsigned', registers: [65], unit: 'kWh' },
+        { name: 'pv4TotalEnergyToday', scale: 0.1, type: 'unsigned', registers: [65], unit: 'kWh' },*/
         { name: 'temperature', scale: 0.01, offset: 1000, type: 'unsigned', registers: [87], unit: '°C' },
         { name: 'uptime', scale: 1, type: 'unsigned', registers: [59], unit: 'm' },
         { name: 'operatingPower', scale: 0.1, type: 'unsigned', registers: [77], unit: 'W' },
@@ -75,10 +91,18 @@ export class DeyeRegisters {
             statusCode: 0,
             totalEnergy: 0,
             totalEnergyToday: 0,
-            acPower: 0,
-            acVoltage: 0,
-            acCurrent: 0,
-            acFrequency: 0,
+            gridPower1: 0,
+            gridVoltage1: 0,
+            gridCurrent1: 0,
+            gridFrequency: 0,
+            outputPower1: 0,
+            outputVoltage1: 0,
+            outputCurrent1: 0,
+            outputFrequency: 0,
+            loadPower1: 0,
+            loadVoltage1: 0,
+            loadCurrent1: 0,
+            loadFrequency: 0,
             pv1Voltage: 0,
             pv1Current: 0,
             pv1TotalEnergy: 0,
