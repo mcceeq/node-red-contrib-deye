@@ -1,4 +1,4 @@
-# node-red-contrib-deye-sun-g3
+# node-red-contrib-deye
 
 [![Software License][ico-license]](LICENSE.md)
 
